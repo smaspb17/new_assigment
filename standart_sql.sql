@@ -38,7 +38,7 @@ insert into orders(customer_id, order_date) values (1, '2025-01-02');
 insert into orders(customer_id, order_date) values (2, '2025-01-03');
 insert into orders(customer_id, order_date) values (2, '2025-01-04');
 insert into orders(customer_id, order_date) values (3, '2025-01-05');
-insert into orders(customer_id, order_date) values (4, '2025-01-06');
+insert into orders(customer_id, order_date) values (3, '2025-01-06');
 
 insert into order_items(order_id, product_name, quantity, price) values (1, 'Product1', 4, 10000);
 insert into order_items(order_id, product_name, quantity, price) values (1, 'Product1', 6, 7000);
