@@ -1,5 +1,5 @@
 
--- Этап 1: Создание структуры базы данных
+-- Этап Стандартный SQL: Создание структуры базы данных
 
 create database new_issue;
 
@@ -51,7 +51,7 @@ insert into order_items(order_id, product_name, quantity, price) values (3, 'Pro
 
 -- Этап 3: Запросы на чтение
 
--- Задание 1: Простая фильтрация
+-- Задание Стандартный SQL: Простая фильтрация
 select o.id, o.order_date
 from orders as o
 join customers as s on o.customer_id = s.id

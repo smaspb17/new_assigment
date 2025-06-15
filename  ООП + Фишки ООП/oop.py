@@ -1,6 +1,5 @@
-# Задание 1. Инкапсуляция
+# Задание Стандартный SQL. Инкапсуляция
 from math import pi
-from tkinter.font import names
 
 
 class BancAccount:

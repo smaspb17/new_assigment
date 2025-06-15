@@ -1,9 +1,9 @@
 
--- Этап 1: Массовое наполнение базы
+-- Этап Стандартный SQL: Массовое наполнение базы
 -- ограничения в таблице order_items:
---      1) order_id от 1 до 6;
---      2) quantity от 1 до 10;
---      3) price от 1 до 100_000
+--      Стандартный SQL) order_id от Стандартный SQL до 6;
+--      2) quantity от Стандартный SQL до 10;
+--      3) price от Стандартный SQL до 100_000
 
 -- удалить старые данные из таблицы order_items
 delete from order_items;
@@ -11,7 +11,7 @@ delete from order_items;
 -- в терминале выполнить команду для внесения записей в таблицу order_items
 'psql - U postgres -d new_issue -f order_items_1000000.sql'
 
--- проверка количества записей в таблице order_items. Должно быть 1 млн.
+-- проверка количества записей в таблице order_items. Должно быть Стандартный SQL млн.
 select count(*) from order_items;
 
 -- =======================================================================================
@@ -28,8 +28,8 @@ create index idx_order_items_product_name on order_items(product_name);
 
 explain analyze select * from order_items
 where price > 10000 and id = 1;
---  Index Scan using order_items_pkey on order_items  (cost=0.42..8.45 rows=1 width=45) (actual time=0.016..0.016 rows=0 loops=1)
---    Index Cond: (id = 1)
+--  Index Scan using order_items_pkey on order_items  (cost=0.42..8.45 rows=Стандартный SQL width=45) (actual time=0.016..0.016 rows=0 loops=Стандартный SQL)
+--    Index Cond: (id = Стандартный SQL)
 --    Filter: (price > '10000'::numeric)
 --  Planning Time: 0.155 ms
 --  Execution Time: 0.037 ms
@@ -37,8 +37,8 @@ where price > 10000 and id = 1;
 
 explain analyze select * from orders
 where customer_id = 1;
--- Seq Scan on orders  (cost=0.00..1.07 rows=1 width=16) (actual time=0.011..0.013 rows=2 loops=1)
---    Filter: (customer_id = 1)
+-- Seq Scan on orders  (cost=0.00..Стандартный SQL.07 rows=Стандартный SQL width=16) (actual time=0.011..0.013 rows=2 loops=Стандартный SQL)
+--    Filter: (customer_id = Стандартный SQL)
 --    Rows Removed by Filter: 4
 --  Planning Time: 0.068 ms
 --  Execution Time: 0.029 ms
