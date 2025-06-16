@@ -275,23 +275,34 @@ from abc import ABC, abstractmethod
 
 
 class PaymentProcessor(ABC):
+    def __init__(self, amount):
+        self.amount = amount
+
     @abstractmethod
     def pay(self):
         pass
 
+    def validate(self):
+        """Общая для всех проверка"""
+        if self.amount <= 0:
+            raise ValueError("Сумма должна быть > 0")
+
 
 class PaymentPayPal(PaymentProcessor):
     def pay(self):
+        self.validate()
         print('Оплата по PayPal')
 
 
 class PaymentCreditCard(PaymentProcessor):
     def pay(self):
+        self.validate()
         print('Оплата по CreditCard')
 
 
 class PaymentCrypto(PaymentProcessor):
     def pay(self):
+        self.validate()
         print('Оплата по Crypto')
 
 
@@ -340,27 +351,29 @@ for some_bird in birds:
 
 # SOLID (I) - принцип разделения интерфейсов
 
+from abc import ABC, abstractmethod
 
-class Animal:
+class Animal(ABC):
     pass
 
-
-class Flying:
+class Flying(Animal):
+    @abstractmethod
     def fly(self):
-        print('Лечу куда хочу')
+        pass
 
-
-class Running:
+class Running(Animal):
+    @abstractmethod
     def run(self):
-        print('Бегу бегу')
+        pass
 
 
-class Swimming:
+class Swimming(Animal):
+    @abstractmethod
     def swim(self):
-        print('Плыву кайфую')
+        pass
 
 
-class Lion(Animal, Running):
+class Lion(Running):
     def run(self):
         print('Львиный бег он быстрый')
 
